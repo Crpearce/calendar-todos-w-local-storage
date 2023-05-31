@@ -4,7 +4,7 @@ import './colby.styles.css'
 const Colby = () => {
   return (
     <div>
-      <Form />
+      <Form name="Colby"/>
     </div>
   )
 }

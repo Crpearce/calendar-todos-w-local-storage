@@ -4,7 +4,7 @@ import './natalie.styles.css'
 const Natalie = () => {
   return (
     <div>
-      <Form />
+      <Form name='Natalie'/>
     </div>
   )
 }
