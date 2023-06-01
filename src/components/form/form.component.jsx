@@ -3,10 +3,15 @@ import { useState, useEffect } from 'react'
 import './form.styles.css'
 
 const Form = ({ name }) => {
+  const localStorageTasks = JSON.parse(localStorage.getItem(`${name} schedule`))
   const [taskDate, setTaskDate] = useState('')
   const [taskDesc, setTaskDesc] = useState('')
   const [newTask, setNewTask] = useState('')
-  const [allTasks, setAllTasks] = useState([])
+  const [allTasks, setAllTasks] = useState(localStorageTasks || [])
+
+  useEffect(() => {
+    localStorage.setItem(`${name} schedule`, JSON.stringify(allTasks))
+  }, [allTasks, name])
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -36,6 +41,12 @@ const Form = ({ name }) => {
       setAllTasks(replacement)
     }
     setAllTasks(allTasks)
+    localStorage.setItem(`${name} schedule`, JSON.stringify(allTasks))
+  }
+
+  const removeTask = (id) => {
+    const matchingTask = allTasks.filter((task) => task.id !== id)
+    setAllTasks(matchingTask)
   }
 
   return (
@@ -48,6 +59,7 @@ const Form = ({ name }) => {
             type='date'
             value={taskDate}
             onChange={(e) => setTaskDate(e.target.value)}
+            required
           />
         </label>
         <label>
@@ -67,7 +79,6 @@ const Form = ({ name }) => {
           return (
             <li key={task.id}>
               <label>
-                {' '}
                 Completed:
                 <input
                   type='checkbox'
@@ -77,7 +88,7 @@ const Form = ({ name }) => {
               </label>
               <h3>{task.date}</h3>
               <p>{task.desc}</p>
-              {/* <button onClick={() => removeTask(task.id)}>X</button> */}
+              <button onClick={() => removeTask(task.id)}>X</button>
             </li>
           )
         })}
