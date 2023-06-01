@@ -51,7 +51,7 @@ const Form = ({ name }) => {
 
   return (
     <div className='form-container'>
-      <h1>{name}'s todo list</h1>
+      <h1 className='form-header'>{name}'s todo list</h1>
       <div className='input-container'>
         <label>
           Date:
