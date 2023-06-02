@@ -2,6 +2,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background-color: #086788;
+    color: #F0C808;
 }
 
 .fam-header {
@@ -10,4 +12,6 @@
 
 .icon {
     padding-right: 3vw;
+    color:#DD1C1A;
+    font-size: 2.5vw;
 }
