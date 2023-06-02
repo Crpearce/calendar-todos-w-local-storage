@@ -11,9 +11,22 @@ li {
     padding: 1vh;
 }
 
+h3 {
+    color: #086788;
+}
+
+p {
+    color: #DD1C1A;
+}
+
 .input-container {
     display: flex;
     align-items: center;
+}
+
+.add-icon {
+    font-size: 2vw;
+    color: #DD1C1A;
 }
 
 .list-container {
@@ -26,10 +39,6 @@ li {
     align-items: center;
 }
 
-h3 {
-    color: #086788;
-}
-
-p {
-    color: #DD1C1A;
+.delete-icon {
+    font-size: 2.5vw;
 }

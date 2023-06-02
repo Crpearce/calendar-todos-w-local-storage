@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react'
 
+import { LuDelete } from 'react-icons/lu'
+import { BsFillCalendarPlusFill } from 'react-icons/bs'
+
 import './form.styles.css'
 
 const Form = ({ name }) => {
@@ -72,7 +75,7 @@ const Form = ({ name }) => {
             required
           />
         </label>
-        <button onClick={handleSubmit}> add to list</button>
+        <BsFillCalendarPlusFill className='add-icon' onClick={handleSubmit}/>
       </div>
       <ul className='list-container'>
         {allTasks?.map((task) => {
@@ -88,7 +91,11 @@ const Form = ({ name }) => {
               </label>
               <h3>{task.date}</h3>
               <p>{task.desc}</p>
-              <button onClick={() => removeTask(task.id)}>X</button>
+              <LuDelete
+                className='delete-icon'
+                onClick={() => removeTask(task.id)}
+              />
+              {/* <button onClick={() => removeTask(task.id)}>X</button> */}
             </li>
           )
         })}

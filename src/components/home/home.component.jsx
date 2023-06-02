@@ -1,17 +1,28 @@
-import { Link } from "react-router-dom"
+import { Link } from 'react-router-dom'
+
+import { BsFillCalendarDateFill } from 'react-icons/bs'
 
 import './home.styles.css'
 
 const Home = () => {
   return (
-    <div className="home-container">
-        <h1>Family Task Tracker</h1>
-        <Link to='/Colby'>
-            <button>Colby's Calendar</button>
+    <div className='home-container'>
+      <h1>Family Task Tracker</h1>
+      <div  className='calendar-container'>
+        <Link to='/Colby' style={{ textDecoration: 'none', color: 'inherit' }}>
+          <h2>
+            Colby's Calendar <BsFillCalendarDateFill className='calendar-icon'/>
+          </h2>
         </Link>
-        <Link to='/Natalie'>
-            <button>Natalie's Calendar</button>
+        <Link
+          to='/Natalie'
+          style={{ textDecoration: 'none', color: 'inherit' }}
+        >
+          <h2>
+            Natalies's Calendar <BsFillCalendarDateFill className='calendar-icon'/>
+          </h2>
         </Link>
+      </div>
     </div>
   )
 }
