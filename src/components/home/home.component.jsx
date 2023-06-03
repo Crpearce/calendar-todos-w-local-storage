@@ -7,12 +7,11 @@ import './home.styles.css'
 import { useState } from 'react'
 
 const Home = () => {
+
   const [newUser, setNewUser] = useState('')
   const [allUsers, setAllUsers] = useState('')
 
-
   const handleSubmit = (e) => {
-    console.log(newUser)
     const userInfo = {
       id: Date.now(),
       name: newUser,
@@ -55,8 +54,9 @@ const Home = () => {
           allUsers.map((user) => {
             return (
               <Link
-                to='/user'
+                to={`/${user}`}
                 style={{ textDecoration: 'none', color: 'inherit' }}
+                key={user}
               >
                 <h2>
                   {user}'s Calendar{' '}
