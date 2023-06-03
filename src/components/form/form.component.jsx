@@ -95,7 +95,6 @@ const Form = ({ name }) => {
                 className='delete-icon'
                 onClick={() => removeTask(task.id)}
               />
-              {/* <button onClick={() => removeTask(task.id)}>X</button> */}
             </li>
           )
         })}
