@@ -32,6 +32,11 @@ const Form = ({ nameDisplay }) => {
     setTaskDesc('')
   }
 
+  // need to set initial state of allTasks to either an empty array or the value of the matching localStorage information
+  // create a function to get the matching local storage based on name
+  // use setState to update the initial value when a calendar has been clicked on
+  // if there is no information to be pulled from a matching name in local storage then make sure the default value is []
+
   const updateComplete = (id) => {
     const matchingTask = allTasks.find((task) => task.id === id)
     const position = allTasks.indexOf(matchingTask)
