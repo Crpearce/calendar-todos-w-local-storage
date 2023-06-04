@@ -7,8 +7,12 @@ import { AiOutlineUserAdd } from 'react-icons/ai'
 import './home.styles.css'
 
 const Home = () => {
+    const localStorageNames = JSON.parse(
+    localStorage.getItem(`names`)
+    )
+    console.log(localStorageNames)
   const [newUser, setNewUser] = useState('')
-  const [allUsers, setAllUsers] = useState([])
+  const [allUsers, setAllUsers] = useState(localStorageNames)
 
   const handleSubmit = (e) => {
     const info = {

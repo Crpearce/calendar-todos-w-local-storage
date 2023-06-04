@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react'
 
-import { useParams } from 'react-router-dom'
-
 import { LuDelete } from 'react-icons/lu'
 import { BsFillCalendarPlusFill } from 'react-icons/bs'
 
@@ -14,7 +12,7 @@ const Form = ({ nameDisplay }) => {
   const [taskDate, setTaskDate] = useState('')
   const [taskDesc, setTaskDesc] = useState('')
   const [newTask, setNewTask] = useState('')
-  const [allTasks, setAllTasks] = useState(localStorageTasks || [])
+  const [allTasks, setAllTasks] = useState([] || localStorageTasks)
 
   useEffect(() => {
     localStorage.setItem(`${nameDisplay} schedule`, JSON.stringify(allTasks))
