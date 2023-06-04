@@ -1,14 +1,19 @@
+import { useParams } from 'react-router-dom'
+
 import Form from '../form/form.component'
 import Navigation from '../navigation/navigation.component'
-import './natalie.styles.css'
 
-const Natalie = () => {
+import './user.styles.css'
+
+const User = () => {
+  let { userId } = useParams()
+  
   return (
     <div className='schedule-container'>
       <Navigation />
-      <Form name='Natalie'/>
+      <Form nameDisplay={userId} />
     </div>
   )
 }
 
-export default Natalie
+export default User

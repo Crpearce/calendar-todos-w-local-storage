@@ -1,20 +1,22 @@
 import { useState, useEffect } from 'react'
 
+import { useParams } from 'react-router-dom'
+
 import { LuDelete } from 'react-icons/lu'
 import { BsFillCalendarPlusFill } from 'react-icons/bs'
 
 import './form.styles.css'
 
-const Form = ({ name }) => {
-  const localStorageTasks = JSON.parse(localStorage.getItem(`${name} schedule`))
+const Form = ({nameDisplay}) => {
+  const localStorageTasks = JSON.parse(localStorage.getItem(`${nameDisplay} schedule`))
   const [taskDate, setTaskDate] = useState('')
   const [taskDesc, setTaskDesc] = useState('')
   const [newTask, setNewTask] = useState('')
   const [allTasks, setAllTasks] = useState(localStorageTasks || [])
 
   useEffect(() => {
-    localStorage.setItem(`${name} schedule`, JSON.stringify(allTasks))
-  }, [allTasks, name])
+    localStorage.setItem(`${nameDisplay} schedule`, JSON.stringify(allTasks))
+  }, [allTasks, nameDisplay])
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -44,7 +46,7 @@ const Form = ({ name }) => {
       setAllTasks(replacement)
     }
     setAllTasks(allTasks)
-    localStorage.setItem(`${name} schedule`, JSON.stringify(allTasks))
+    localStorage.setItem(`${nameDisplay} schedule`, JSON.stringify(allTasks))
   }
 
   const removeTask = (id) => {
@@ -54,7 +56,7 @@ const Form = ({ name }) => {
 
   return (
     <div className='form-container'>
-      <h1 className='form-header'>{name}'s todo list</h1>
+      <h1 className='form-header'>{nameDisplay}'s todo list</h1>
       <div className='input-container'>
         <label>
           Date:
