@@ -10,11 +10,10 @@ const Home = () => {
     const localStorageNames = JSON.parse(
     localStorage.getItem(`names`)
     )
-    console.log(localStorageNames)
   const [newUser, setNewUser] = useState('')
-  const [allUsers, setAllUsers] = useState(localStorageNames)
+  const [allUsers, setAllUsers] = useState(localStorageNames || [])
 
-  const handleSubmit = (e) => {
+  const handleSubmit = () => {
     const info = {
       id: Date.now(),
       name: newUser,
@@ -22,11 +21,11 @@ const Home = () => {
     const initalTodos = []
     localStorage.setItem(`${info.name} schedule`, JSON.stringify(initalTodos))
     setNewUser(info)
-    setAllUsers([...allUsers, info.name])
+    setAllUsers([ info.name, ...allUsers])
     localStorage.setItem('names', JSON.stringify([...allUsers, newUser]))
     setNewUser('')
   }
-
+ console.log(allUsers)
   return (
     <div className='home-container'>
       <h1>Family Task Tracker</h1>
