@@ -7,8 +7,10 @@ import { BsFillCalendarPlusFill } from 'react-icons/bs'
 
 import './form.styles.css'
 
-const Form = ({nameDisplay}) => {
-  const localStorageTasks = JSON.parse(localStorage.getItem(`${nameDisplay} schedule`))
+const Form = ({ nameDisplay }) => {
+  const localStorageTasks = JSON.parse(
+    localStorage.getItem(`${nameDisplay} schedule`)
+  )
   const [taskDate, setTaskDate] = useState('')
   const [taskDesc, setTaskDesc] = useState('')
   const [newTask, setNewTask] = useState('')
@@ -77,7 +79,7 @@ const Form = ({nameDisplay}) => {
             required
           />
         </label>
-        <BsFillCalendarPlusFill className='add-icon' onClick={handleSubmit}/>
+        <BsFillCalendarPlusFill className='add-icon' onClick={handleSubmit} />
       </div>
       <ul className='list-container'>
         {allTasks?.map((task) => {

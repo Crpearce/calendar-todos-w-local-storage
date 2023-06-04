@@ -7,7 +7,7 @@ import './user.styles.css'
 
 const User = () => {
   let { userId } = useParams()
-  
+
   return (
     <div className='schedule-container'>
       <Navigation />
