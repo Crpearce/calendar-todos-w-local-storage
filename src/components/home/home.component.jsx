@@ -25,7 +25,7 @@ const Home = () => {
     localStorage.setItem('names', JSON.stringify([...allUsers, newUser]))
     setNewUser('')
   }
- console.log(allUsers)
+  
   return (
     <div className='home-container'>
       <h1>Family Task Tracker</h1>

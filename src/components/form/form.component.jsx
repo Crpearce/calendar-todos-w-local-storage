@@ -12,7 +12,7 @@ const Form = ({ nameDisplay }) => {
   const [taskDate, setTaskDate] = useState('')
   const [taskDesc, setTaskDesc] = useState('')
   const [newTask, setNewTask] = useState('')
-  const [allTasks, setAllTasks] = useState([] || localStorageTasks)
+  const [allTasks, setAllTasks] = useState(localStorageTasks || [])
 
   useEffect(() => {
     localStorage.setItem(`${nameDisplay} schedule`, JSON.stringify(allTasks))
